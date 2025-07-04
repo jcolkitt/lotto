@@ -5,7 +5,8 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { PaperProvider } from 'react-native-paper';
 import { theme } from '@/constants/theme';
 import { Keyboard, Platform, AppState, LogBox } from 'react-native';
-import 'react-native-url-polyfill/auto';
+import 'react-native-url-polyfill/auto'
+import { useFrameworkReady } from '@/hooks/useFrameworkReady';
 
 declare global {
   interface Window {
@@ -14,6 +15,7 @@ declare global {
 }
 
 export default function RootLayout() {
+  useFrameworkReady();
   // Suppress known warnings for Expo SDK 53
   useEffect(() => {
     LogBox.ignoreLogs([
