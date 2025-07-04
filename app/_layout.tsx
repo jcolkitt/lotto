@@ -22,8 +22,31 @@ export default function RootLayout() {
       'TurboModuleRegistry.getEnforcing(...): \'PlatformConstants\' could not be found',
       'Module RCTImageLoader requires main queue setup',
       'Require cycle:',
-      'findDOMNode is deprecated',
+      'findDOMNode is deprecated and will be removed in the next major release',
+      'Warning: findDOMNode is deprecated',
     ]);
+    
+    // Suppress console warnings in web environment
+    if (Platform.OS === 'web') {
+      const originalWarn = console.warn;
+      const originalError = console.error;
+      
+      console.warn = (...args) => {
+        const message = args.join(' ');
+        if (message.includes('findDOMNode is deprecated')) {
+          return;
+        }
+        originalWarn.apply(console, args);
+      };
+      
+      console.error = (...args) => {
+        const message = args.join(' ');
+        if (message.includes('findDOMNode is deprecated')) {
+          return;
+        }
+        originalError.apply(console, args);
+      };
+    }
   }, []);
 
   useEffect(() => {
