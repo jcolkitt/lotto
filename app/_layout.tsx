@@ -4,7 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { PaperProvider } from 'react-native-paper';
 import { theme } from '@/constants/theme';
-import { Keyboard, Platform, AppState } from 'react-native';
+import { Keyboard, Platform, AppState, LogBox } from 'react-native';
 import 'react-native-url-polyfill/auto';
 
 declare global {
@@ -14,6 +14,15 @@ declare global {
 }
 
 export default function RootLayout() {
+  // Suppress known warnings for Expo SDK 53
+  useEffect(() => {
+    LogBox.ignoreLogs([
+      'TurboModuleRegistry.getEnforcing(...): \'PlatformConstants\' could not be found',
+      'Module RCTImageLoader requires main queue setup',
+      'Require cycle:',
+    ]);
+  }, []);
+
   useEffect(() => {
     window.frameworkReady?.();
     
