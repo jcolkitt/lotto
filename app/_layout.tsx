@@ -22,6 +22,7 @@ export default function RootLayout() {
       'TurboModuleRegistry.getEnforcing(...): \'PlatformConstants\' could not be found',
       'Module RCTImageLoader requires main queue setup',
       'Require cycle:',
+      'findDOMNode is deprecated',
     ]);
   }, []);
 
