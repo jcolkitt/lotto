@@ -1,4 +1,5 @@
 import { MD3LightTheme } from 'react-native-paper';
+import { DefaultTheme } from '@react-navigation/native';
 
 export const colors = {
   primary: '#2196F3',
@@ -19,8 +20,10 @@ export const colors = {
 };
 
 export const theme = {
+  ...DefaultTheme,
   ...MD3LightTheme,
   colors: {
+    ...DefaultTheme.colors,
     ...MD3LightTheme.colors,
     primary: colors.primary,
     secondary: colors.secondary,
