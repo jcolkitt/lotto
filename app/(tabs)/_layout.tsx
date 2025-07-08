@@ -43,6 +43,7 @@ export default function TabLayout() {
             tabBarIcon: ({ color, size }) => (
               <ClipboardList size={size} color={color} />
             ),
+            href: '/',
           }}
         />
         <Tabs.Screen
@@ -54,6 +55,7 @@ export default function TabLayout() {
               <PlusCircle size={size} color={color} />
             ),
             headerTitle: 'Add New Ticket Pack',
+            href: '/add',
           }}
         />
         <Tabs.Screen
@@ -65,6 +67,7 @@ export default function TabLayout() {
               <CheckSquare size={size} color={color} />
             ),
             headerTitle: 'Review & Submit',
+            href: '/review',
           }}
         />
         <Tabs.Screen
@@ -76,6 +79,7 @@ export default function TabLayout() {
               <ScanLine size={size} color={color} />
             ),
             headerTitle: 'Scanner Test',
+            href: '/scanner-test',
           }}
         />
         <Tabs.Screen
@@ -87,6 +91,7 @@ export default function TabLayout() {
               <Bug size={size} color={color} />
             ),
             headerTitle: 'Scanner Diagnostics',
+            href: '/scanner-debug',
           }}
         />
         <Tabs.Screen
@@ -98,6 +103,7 @@ export default function TabLayout() {
               <Settings size={size} color={color} />
             ),
             headerTitle: 'Scanner Settings',
+            href: '/settings',
           }}
         />
       </Tabs>
